@@ -84,7 +84,7 @@ body::before{
 .contact-btn:active{transform:scale(.95);}
 .btn-call{background:linear-gradient(135deg,#11998e,#38ef7d);color:#fff;}
 .btn-wa{background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;}
-.btn-email{background:linear-gradient(135deg,#f7971e,#fd5e1f);color:#fff;}
+.btn-email{background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;}
 
 /* SECTION CARD */
 .section{padding:0 var(--sp-4) var(--sp-5);}
@@ -149,46 +149,69 @@ textarea.feedback-input:focus{border-color:var(--accent);}
 /* FOOTER */
 .footer{
   text-align:center;
-  padding:var(--sp-5) var(--sp-4) var(--sp-4);
+  padding:var(--sp-4) var(--sp-4) var(--sp-3);
   border-top:1px solid var(--border);
   margin-top:var(--sp-2);
 }
 .footer-logo{
-  width:clamp(48px,12vw,64px);
+  width:clamp(36px,9vw,48px);
   margin-bottom:var(--sp-2);
   display:block;
   margin-left:auto;
   margin-right:auto;
+  border-radius:var(--radius-sm);
 }
 .footer-name{
   font-family:'Outfit',sans-serif;
-  font-size:var(--fs-md);
+  font-size:var(--fs-sm);
   font-weight:700;
   color:var(--text);
-  line-height:1.3;
+  line-height:1.25;
 }
 .footer-tagline{
   font-size:var(--fs-xs);
   color:var(--muted);
   margin-top:2px;
-  line-height:1.4;
+  line-height:1.35;
 }
 .footer-links{
   display:flex;
   justify-content:center;
-  gap:var(--sp-3);
-  margin-top:var(--sp-3);
+  align-items:center;
+  gap:var(--sp-2);
+  margin-top:var(--sp-2);
   flex-wrap:wrap;
 }
 .footer-link{
   font-size:var(--fs-xs);
   color:var(--accent);
   text-decoration:none;
-  min-height:36px;
+  min-height:32px;
   display:inline-flex;
   align-items:center;
-  gap:4px;
+  gap:3px;
+  padding:0 var(--sp-2);
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:var(--radius-pill);
+  transition:border-color var(--t-fast);
 }
+.footer-link:active{border-color:var(--accent);}
+
+/* GREETING BAR */
+.greeting-bar{
+  text-align:center;
+  padding:var(--sp-3) var(--sp-4) 0;
+  font-family:'Outfit',sans-serif;
+  font-size:var(--fs-sm);
+  font-weight:600;
+  color:var(--muted);
+  letter-spacing:0.5px;
+}
+.greeting-bar span{
+  color:var(--accent);
+}
+
 /* ERROR */
 .empty-state{text-align:center;padding:var(--sp-7) var(--sp-4);color:var(--muted);font-size:var(--fs-sm);}
 .error-page{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:var(--sp-10) var(--sp-4);}
@@ -345,8 +368,8 @@ function renderPage(client, settings, social) {
       + '</div></div>';
   }
 
-  var g = getGreeting();
-document.getElementById('page-content').innerHTML =
+var g = getGreeting();
+  document.getElementById('page-content').innerHTML =
     '<div class="greeting-bar fade-up s1">' + g.emoji + ' <span>' + g.text + '</span></div>'
     + '<div class="hero">'
 
